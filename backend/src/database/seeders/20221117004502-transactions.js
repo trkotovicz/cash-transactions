@@ -1,25 +1,43 @@
 'use strict';
 
-/** @type {import('sequelize-cli').Migration} */
+const { NOW } = require("sequelize");
+
 module.exports = {
   async up (queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
+    await queryInterface.bulkInsert('Transactions',
+    [
+      {
+        value: 1000,
+        debitedAccountId: 4,
+        creditedAccountId: 5,
+        createdAt: NOW()
+      },
+      {
+        value: 300.40,
+        debitedAccountId: 3,
+        creditedAccountId: 2,
+        createdAt: NOW()
+      },
+      {
+        value: 77.79,
+        debitedAccountId: 1,
+        creditedAccountId: 5,
+        createdAt: NOW()
+      },
+      {
+        value: 99.00,
+        debitedAccountId: 4,
+        creditedAccountId: 2,
+        createdAt: NOW()
+      },
+      {
+        value: 250.71,
+        debitedAccountId: 3,
+        creditedAccountId: 1,
+        createdAt: NOW()
+      },
+    ], { });
   },
 
-  async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
-  }
+  async down (queryInterface) { queryInterface.bulkDelete('Transactions', null, {}) }
 };

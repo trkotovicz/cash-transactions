@@ -1,4 +1,4 @@
-import { INTEGER, Model, DATE } from 'sequelize';
+import { INTEGER, Model, DATE, DECIMAL } from 'sequelize';
 import db from '.';
 import Account from './Account';
 
@@ -18,7 +18,7 @@ Transaction.init({
     autoIncrement: true,
   },
   value: {
-    type: INTEGER,
+    type: DECIMAL(12, 2),
     allowNull: false,
   },
   debitedAccountId: {
@@ -43,7 +43,7 @@ Transaction.init({
   },
 }, {
   sequelize: db,
-  modelName: 'Transactions',
+  modelName: 'Transaction',
   underscored: true,
   timestamps: false,
 });

@@ -10,4 +10,4 @@ const config: Options = {
   dialect: 'postgres',
 }
 
-export = config;
+module.exports = config;

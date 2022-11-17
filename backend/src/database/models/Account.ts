@@ -1,4 +1,4 @@
-import { INTEGER, Model } from 'sequelize';
+import { INTEGER, Model, DECIMAL } from 'sequelize';
 import db from '.';
 
 class Account extends Model {
@@ -14,12 +14,12 @@ Account.init({
     autoIncrement: true,
   },
   balance: {
-    type: INTEGER,
+    type: DECIMAL(12, 2),
     allowNull: false,
   },
 }, {
   sequelize: db,
-  modelName: 'Accounts',
+  modelName: 'Account',
   timestamps: false,
 });
 

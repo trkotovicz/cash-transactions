@@ -2,10 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Backend do projeto Cash Transactions com Express, Sequelize e Postgres",
-  "main": "src/index.ts",
+  "main": "src/index.js",
   "scripts": {
-    "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
-    "prestart": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create",
+    "prestart": "npm run build && npm run db:reset",
     "start": "npm run build && node ./dist/index.js",
     "dev": "tsnd src/index.ts",
     "build": "tsc"
