@@ -8,6 +8,9 @@ const config: Options = {
   host: process.env.POSTGRES_HOST || 'localhost',
   port: Number(process.env.POSTGRES_PORT) || 5432,
   dialect: 'postgres',
+  dialectOptions: {
+    timezone: 'Z',
+  },
 }
 
 module.exports = config;

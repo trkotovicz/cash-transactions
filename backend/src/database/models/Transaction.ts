@@ -1,3 +1,4 @@
+import { type } from 'os';
 import { INTEGER, Model, DATE, DECIMAL } from 'sequelize';
 import db from '.';
 import Account from './Account';
@@ -39,12 +40,11 @@ Transaction.init({
   },
   createdAt: {
     type: DATE,
-    allowNull: false
+    allowNull: false,
   },
 }, {
   sequelize: db,
   modelName: 'Transaction',
-  underscored: true,
   timestamps: false,
 });
 
