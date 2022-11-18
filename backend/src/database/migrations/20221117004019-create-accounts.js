@@ -12,6 +12,7 @@ module.exports = {
       balance: {
         type: Sequelize.DECIMAL(12, 2),
         allowNull: false,
+        defaultValue: '100.00',
       },
     })
   },
