@@ -19,6 +19,7 @@ User.init({
   username: {
     type: STRING,
     allowNull: false,
+    unique: true,
   },
   password: {
     type: STRING,
@@ -30,11 +31,12 @@ User.init({
     references: {
       model: 'Account',
       key: 'id',
-    }
+    },
   },
 }, {
   sequelize: db,
   modelName: 'User',
+  tableName: 'users',
   timestamps: false,
 });
 

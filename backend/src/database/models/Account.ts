@@ -20,6 +20,7 @@ Account.init({
 }, {
   sequelize: db,
   modelName: 'Account',
+  tableName: 'accounts',
   timestamps: false,
 });
 

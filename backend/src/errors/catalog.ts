@@ -1,5 +1,8 @@
+import { StatusCodes } from 'http-status-codes';
+
 export enum ErrorTypes {
   EntityNotFound = 'EntityNotFound',
+  UnauthorizedError = 'UnauthorizedError',
 }
 
 type ErrorResponseObject = { 
@@ -14,6 +17,10 @@ export type ErrorCatalog = {
 export const errorCatalog: ErrorCatalog = {
   EntityNotFound: {
     message: 'Object not found',
-    httpStatus: 404,
-  }
+    httpStatus: StatusCodes.NOT_FOUND,
+  },
+  UnauthorizedError: {
+    message: 'Incorrect username or password',
+    httpStatus: StatusCodes.UNAUTHORIZED,
+  },
 };

@@ -1,5 +1,4 @@
-import { type } from 'os';
-import { INTEGER, Model, DATE, DECIMAL } from 'sequelize';
+import { DATE, DECIMAL, INTEGER, Model } from 'sequelize';
 import db from '.';
 import Account from './Account';
 
@@ -27,16 +26,16 @@ Transaction.init({
     allowNull: false,
     references: {
       model: 'Account',
-      key: 'id'
-    }
+      key: 'id',
+    },
   },
   creditedAccountId: {
     type: INTEGER,
     allowNull: false,
     references: {
       model: 'Account',
-      key: 'id'
-    }
+      key: 'id',
+    },
   },
   createdAt: {
     type: DATE,
@@ -45,10 +44,17 @@ Transaction.init({
 }, {
   sequelize: db,
   modelName: 'Transaction',
+  tableName: 'transactions',
   timestamps: false,
 });
 
-Transaction.belongsTo(Account, { foreignKey: 'creditedAccountId', as: 'creditedAccount' });
-Transaction.belongsTo(Account, { foreignKey: 'debitedAccountId', as: 'debitedAccount' });
+Transaction.belongsTo(
+  Account,
+  { foreignKey: 'creditedAccountId', as: 'creditedAccount' },
+);
+Transaction.belongsTo(
+  Account,
+  { foreignKey: 'debitedAccountId', as: 'debitedAccount' },
+);
 
 export default Transaction;
