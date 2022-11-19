@@ -4,6 +4,7 @@ import cors from 'cors';
 import errorHandler from './middlewares/errorHandler';
 import userRouter from './routes/User';
 import accountRouter from './routes/Account';
+import transactionRouter from './routes/Transactions';
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(cors());
 
 app.use(userRouter);
 app.use(accountRouter);
+app.use(transactionRouter);
 
 app.use(errorHandler);
 

@@ -52,9 +52,18 @@ Transaction.belongsTo(
   Account,
   { foreignKey: 'creditedAccountId', as: 'creditedAccount' },
 );
+// Account.hasMany(
+//   Transaction,
+//   { foreignKey: 'creditedAccountId', as: 'creditedAccount' },
+// );
+
 Transaction.belongsTo(
   Account,
   { foreignKey: 'debitedAccountId', as: 'debitedAccount' },
 );
+// Account.hasMany(
+//   Transaction,
+//   { foreignKey: 'debitedAccountId', as: 'debitedAccount' },
+// );
 
 export default Transaction;

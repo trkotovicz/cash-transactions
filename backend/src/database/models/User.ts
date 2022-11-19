@@ -1,12 +1,14 @@
 import { INTEGER, Model, STRING } from 'sequelize';
 import db from '.';
 import Account from './Account';
+// import Transaction from './Transaction';
 
 class User extends Model {
   id!: number;
   username!: string;
   password!: string;
   accountId!: number;
+  static associate: () => void;
 }
 
 User.init({
@@ -39,6 +41,10 @@ User.init({
   tableName: 'users',
   timestamps: false,
 });
+
+// User.associate = () => {
+//   User.hasMany(Transaction, { foreignKey: 'accountId', as: 'account' });
+// };
 
 User.belongsTo(Account, { foreignKey: 'accountId', as: 'account' });
 
