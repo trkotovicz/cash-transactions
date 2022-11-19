@@ -18,7 +18,7 @@ export default class UserService {
     if (!user || user.password !== md5(password)) {
       throw Error('UnauthorizedError');
     }
-    return { id: user.id, username: user.username };
+    return { id: user.id, username: user.username, accountId: user.accountId };
   };
 
   createUserAccount = async (obj: INewUser): Promise<User | undefined> => {

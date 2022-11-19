@@ -22,7 +22,7 @@ export const errorCatalog: ErrorCatalog = {
     httpStatus: StatusCodes.NOT_FOUND,
   },
   UnauthorizedError: {
-    message: 'Incorrect username or password',
+    message: 'Unauthorized access',
     httpStatus: StatusCodes.UNAUTHORIZED,
   },
   ConflictError: {
