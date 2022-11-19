@@ -1,5 +1,6 @@
 import { ErrorRequestHandler } from 'express';
 import { ZodError } from 'zod';
+import { ValidationError } from 'joi';
 import { ErrorTypes, errorCatalog } from '../errors/catalog';
 
 const errorHandler: ErrorRequestHandler = ( 
@@ -12,6 +13,10 @@ const errorHandler: ErrorRequestHandler = (
   if (err instanceof ZodError) { 
     // se for nós sabemos que é um erro de validação e podemos usar o status 400 e a própria mensagem do zod para retornar a response
     return res.status(400).json({ message: err.issues });
+  }
+  // mesma coisa acontece aqui com o Joi
+  if (err instanceof ValidationError) {
+    return res.status(400).json(err.message);
   }
   // aqui vamos fazer o cast da mensagem de erro para uma chave do Enum ErrorTypes
   // com o keyof typeof - traduzindo seria algo como 'chaves do tipo de'

@@ -3,6 +3,8 @@ import { StatusCodes } from 'http-status-codes';
 export enum ErrorTypes {
   EntityNotFound = 'EntityNotFound',
   UnauthorizedError = 'UnauthorizedError',
+  ConflictError = 'ConflictError',
+  GenericError = 'GenericError',
 }
 
 type ErrorResponseObject = { 
@@ -22,5 +24,13 @@ export const errorCatalog: ErrorCatalog = {
   UnauthorizedError: {
     message: 'Incorrect username or password',
     httpStatus: StatusCodes.UNAUTHORIZED,
+  },
+  ConflictError: {
+    message: 'User already exists',
+    httpStatus: StatusCodes.CONFLICT,
+  },
+  GenericError: {
+    message: 'Something wrong happend',
+    httpStatus: StatusCodes.INTERNAL_SERVER_ERROR,
   },
 };
