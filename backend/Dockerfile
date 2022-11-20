@@ -2,7 +2,7 @@ FROM node:16.14-alpine
 
 WORKDIR /backend
 
-COPY package* ./
+COPY . .
 
 RUN npm install
 

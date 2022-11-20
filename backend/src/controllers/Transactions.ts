@@ -19,4 +19,12 @@ export default class TransactionController {
     const transactions = await this.transactionService.cashOut(data.accountId);
     res.status(StatusCodes.OK).json(transactions);
   };
+
+  allTransactions = async (req: Request, res: Response) => {
+    const token = String(req.headers.authorization);
+    const data = JwtService.validateToken(token);
+    const transactions = await this.transactionService
+      .allTransactions(data.accountId);
+    res.status(StatusCodes.OK).json(transactions);
+  };
 }

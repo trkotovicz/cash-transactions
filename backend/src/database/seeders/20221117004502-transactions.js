@@ -15,6 +15,11 @@ module.exports = {
         creditedAccountId: 2,
       },
       {
+        value: 15000.00,
+        debitedAccountId: 4,
+        creditedAccountId: 3,
+      },
+      {
         value: 77.79,
         debitedAccountId: 1,
         creditedAccountId: 5,
@@ -28,6 +33,11 @@ module.exports = {
         value: 250.71,
         debitedAccountId: 3,
         creditedAccountId: 1,
+      },
+      {
+        value: 7000.00,
+        debitedAccountId: 3,
+        creditedAccountId: 4,
       },
     ], { });
   },

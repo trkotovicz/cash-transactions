@@ -6,7 +6,8 @@
   "scripts": {
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "prestart": "npm run build && npm run db:reset",
-    "start": "npm run build && node ./dist/index.js",
+    "start": "node ./dist/index.js",
+    "predev": "npm run build && npm run db:reset",
     "dev": "tsnd src/index.ts",
     "build": "tsc"
   },
