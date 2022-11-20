@@ -18,11 +18,11 @@ services:
       - 3001:3001
     platform: linux/x86_64
     environment:
-      - APP_PORT=3001
-      - DB_USER=postgres
-      - DB_PASSWORD=postgres
-      - DB_HOST=localhost
-      - DB_PORT=5432
+      - JWT_SECRET=jwt_secret
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DATABASE=db-bank
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=postgres
     depends_on:
       - db
 
@@ -35,6 +35,4 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_HOST=localhost
-      - POSTGRES_PORT=5432
     restart: 'always'

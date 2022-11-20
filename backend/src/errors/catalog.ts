@@ -5,6 +5,7 @@ export enum ErrorTypes {
   UnauthorizedError = 'UnauthorizedError',
   ConflictError = 'ConflictError',
   GenericError = 'GenericError',
+  InsuficientFounds = 'InsuficientFounds',
 }
 
 type ErrorResponseObject = { 
@@ -32,5 +33,9 @@ export const errorCatalog: ErrorCatalog = {
   GenericError: {
     message: 'Something wrong happend',
     httpStatus: StatusCodes.INTERNAL_SERVER_ERROR,
+  },
+  InsuficientFounds: {
+    message: 'Insuficiente founds in this account',
+    httpStatus: StatusCodes.UNAUTHORIZED,
   },
 };

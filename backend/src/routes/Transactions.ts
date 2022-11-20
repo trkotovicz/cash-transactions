@@ -3,8 +3,11 @@ import { transactionController } from './main';
 
 const transactionRouter = Router();
 
-transactionRouter.get('/transactions/cashin', transactionController.cashIn);
-transactionRouter.get('/transactions/cashout', transactionController.cashOut);
-transactionRouter.get('/transactions', transactionController.allTransactions);
+const URL = '/transactions';
+
+transactionRouter.get(URL, transactionController.allTransactions);
+transactionRouter.get(`${URL}/cashin`, transactionController.cashIn);
+transactionRouter.get(`${URL}/cashout`, transactionController.cashOut);
+transactionRouter.post(`${URL}/new`, transactionController.createTransaction);
 
 export default transactionRouter;

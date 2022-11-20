@@ -9,7 +9,7 @@ import { validateUser } from './validatorService';
 export default class UserService {
   findUser = async (username: string): Promise<IUser> => {
     const user = await User.findOne({ where: { username } });
-    if (!user) throw Error('UnauthorizedError');
+    if (!user) throw Error('EntityNotFound');
     return user;
   };
 
@@ -41,6 +41,7 @@ export default class UserService {
       return user;
     } catch (error) {
       await t.rollback();
+      console.error(error);
     }
   };  
 }

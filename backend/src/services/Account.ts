@@ -1,4 +1,3 @@
-// import Sequelize from '../database/models/index';
 import Account from '../database/models/Account';
 import IAccount from '../interfaces/IAccount';
 import JwtService from './jwtService';
