@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import UserService from '../services/User';
-import JwtService from '../services/JwtService';
+import JwtService from '../services/jwtService';
 
 export default class UserController {
   constructor(private userService: UserService) {}
