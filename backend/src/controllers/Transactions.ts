@@ -31,9 +31,9 @@ export default class TransactionController {
   createTransaction = async (req: Request, res: Response) => {
     const { value, username } = req.body;
     const token = String(req.headers.authorization);
-    const { accountId } = await JwtService.validateToken(token);
+    const data = await JwtService.validateToken(token);
     const transaction = await this.transactionService
-      .createTransaction(username, value, accountId);
+      .createTransaction(username, value, data.accountId);
     res.status(StatusCodes.CREATED).json(transaction);
   };
 }

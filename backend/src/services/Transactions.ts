@@ -45,7 +45,8 @@ export default class TransactionService {
   };
 
   decrementBalance = async (value: number, accountId: number, t: any) => {
-    const account: IAccount | null = await Account.findByPk(accountId);
+    const account = await Account.findByPk(accountId);
+    if (!account) throw Error('EntityNotFound');
     if (account.balance < value) throw Error('InsuficientFounds');
     await Account.decrement(
       { balance: value },
