@@ -15,8 +15,7 @@ export default class UserController {
   
   createUser = async (req: Request, res: Response) => {
     const user = await this.userService.createUserAccount(req.body);
-    if (!user) throw Error('ConflictError');
-    
+    if (!user) throw Error('ConflictError'); 
     res.status(StatusCodes.CREATED).json(user);
   };
 }
