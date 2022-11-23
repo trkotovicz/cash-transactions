@@ -32,8 +32,12 @@ export default class TransactionController {
     const { value, username } = req.body;
     const token = String(req.headers.authorization);
     const data = await JwtService.validateToken(token);
+    
     const transaction = await this.transactionService
-      .createTransaction(username, value, data.accountId);
+      .createTransaction(username, value, data);
+
+    console.log('!!!!!!!!! transaction', transaction);    
+
     res.status(StatusCodes.CREATED).json(transaction);
   };
 }
