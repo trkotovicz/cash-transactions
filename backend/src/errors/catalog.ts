@@ -6,6 +6,7 @@ export enum ErrorTypes {
   ConflictError = 'ConflictError',
   GenericError = 'GenericError',
   InsuficientFounds = 'InsuficientFounds',
+  ConflictAccountId = 'ConflictAccountId',
 }
 
 type ErrorResponseObject = { 
@@ -35,7 +36,11 @@ export const errorCatalog: ErrorCatalog = {
     httpStatus: StatusCodes.INTERNAL_SERVER_ERROR,
   },
   InsuficientFounds: {
-    message: 'Insuficiente founds in this account',
+    message: 'Insuficient founds in this account',
     httpStatus: StatusCodes.UNAUTHORIZED,
+  },
+  ConflictAccountId: {
+    message: 'It is not allowed to transfer money to themselves',
+    httpStatus: StatusCodes.CONFLICT,
   },
 };
