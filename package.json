@@ -1,0 +1,15 @@
+{
+  "name": "cash-transactions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "bash scripts/start.sh",
+    "kill:all": "bash scripts/kill_all.sh",
+    "compose:up": "docker-compose up -d --build",
+    "compose:down": "docker-compose down --remove-orphans"
+  },
+  "keywords": [],
+  "author": "Thais Kotovicz <thais_kotovicz@hotmail.com>",
+  "license": "ISC"
+}
