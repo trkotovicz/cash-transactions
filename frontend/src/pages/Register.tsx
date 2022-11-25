@@ -1,24 +1,21 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { userLogin } from '../services/apiRequests';
-import { saveUser } from '../services/localStorage';
+import { useNavigate } from 'react-router-dom';
+import { userRegister } from '../services/apiRequests';
 
-export default function Login() {
+export default function Register() {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showHidden, setShowHidden] = useState(false);
 
-  const handleClickLogin = async () => {
+  const handleClick = async () => {
     try {
-      const userData = await userLogin({ username, password });
-      const { user } = userData;
-      saveUser(userData);
-      navigate(`/account/${user.accountId}`)
+      await userRegister({ username, password });
+      navigate('/');
     } catch (error) {
       setShowHidden(true);
     }
-  };
+  }
 
   const isValid = () => {
     const three = 3;
@@ -28,8 +25,8 @@ export default function Login() {
 
   return (
     <>
-      <form className='login-form'>
-        <div className='login-container'>
+      <form className='register-form'>
+        <div className='register-container'>
         <label htmlFor='username' className='username-input'>
           USERNAME
           <input
@@ -49,28 +46,20 @@ export default function Login() {
           />
         </label>
         </div>
-
         <div className='button-container'>
           <button
-          className='login-btn'
+          className='register-btn'
           type='button'
           disabled={ isValid() }
-          onClick={ handleClickLogin }
+          onClick={ handleClick }
           >
-            LOGIN
+            CRIAR CONTA
           </button>
-          <Link to="/register">
-            <button
-            className='register-btn'
-            type='button'
-            >
-              CRIAR CONTA
-            </button>
-          </Link>
         </div>
+
         {showHidden ? (
-          <span className='span-invalid-login'>
-            USERNAME E/OU SENHA INVÁLIDOS
+          <span className='span-error-register'>
+            USERNAME JÁ CADASTRADO
           </span>
         ) : ''}
       </form>
