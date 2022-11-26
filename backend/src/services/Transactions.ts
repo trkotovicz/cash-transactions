@@ -14,6 +14,7 @@ export default class TransactionService {
         { model: User, as: 'debitedUser', attributes: ['username'] },
         { model: User, as: 'creditedUser', attributes: ['username'] },
       ],
+      order: [ ['createdAt', 'ASC'] ],
     });
     return transactions;
   };
@@ -25,6 +26,7 @@ export default class TransactionService {
         { model: User, as: 'debitedUser', attributes: ['username'] },
         { model: User, as: 'creditedUser', attributes: ['username'] },
       ],
+      order: [ ['createdAt', 'ASC'] ],
     });
     return transactions;
   };
@@ -39,6 +41,7 @@ export default class TransactionService {
         { model: User, as: 'debitedUser', attributes: ['username'] },
         { model: User, as: 'creditedUser', attributes: ['username'] },
       ],
+      order: [ ['createdAt', 'ASC'] ],
     });
     return transactions;
   };
