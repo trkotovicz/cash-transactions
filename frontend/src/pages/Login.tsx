@@ -24,7 +24,7 @@ export default function Login() {
     const three = 3;
     const reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
     return !(reg.test(password) && username.length >= three);
-  }
+  };
 
   return (
     <>

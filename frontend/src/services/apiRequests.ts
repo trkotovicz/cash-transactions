@@ -46,9 +46,9 @@ export const accountById = async (id: number) => {
 // --------------------------------------------------------------
 // TRANSACTION REQUESTS
 
-export const allTransactions = async () => {
+export const allTransactions = async (token: string) => {
   try {
-    const { data } = await api.get('/transactions');
+    const { data } = await api.get('/transactions', { headers: { 'Authorization': token } });
     return data;
   } catch (error) {
     return error;

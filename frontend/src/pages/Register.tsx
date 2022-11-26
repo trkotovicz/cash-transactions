@@ -6,16 +6,11 @@ export default function Register() {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [showHidden, setShowHidden] = useState(false);
 
   const handleClick = async () => {
-    try {
-      await userRegister({ username, password });
-      navigate('/');
-    } catch (error) {
-      setShowHidden(true);
-    }
-  }
+    await userRegister({ username, password });
+    navigate('/');
+  };
 
   const isValid = () => {
     const three = 3;
@@ -56,12 +51,6 @@ export default function Register() {
             CRIAR CONTA
           </button>
         </div>
-
-        {showHidden ? (
-          <span className='span-error-register'>
-            USERNAME JÁ CADASTRADO
-          </span>
-        ) : ''}
       </form>
     </>
   )
