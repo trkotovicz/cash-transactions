@@ -55,27 +55,27 @@ export const allTransactions = async (token: string) => {
   }
 };
 
-export const cashInTransactions = async () => {
+export const cashInTransactions = async (token: string) => {
   try {
-    const { data } = await api.get('/transactions/cashin');
+    const { data } = await api.get('/transactions/cashin', { headers: { 'Authorization': token } });
     return data;
   } catch (error) {
     return error;
   }
 };
 
-export const cashOutTransactions = async () => {
+export const cashOutTransactions = async (token: string) => {
   try {
-    const { data } = await api.get('/transactions/cashout');
+    const { data } = await api.get('/transactions/cashout', { headers: { 'Authorization': token } });
     return data;
   } catch (error) {
     return error;
   }
 };
 
-export const createTransaction = async () => {
+export const createTransaction = async (token: string) => {
   try {
-    const { data } = await api.post('/transactions/new');
+    const { data } = await api.post('/transactions/new', { headers: { 'Authorization': token } });
     return data;
   } catch (error) {
     return error;

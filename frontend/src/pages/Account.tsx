@@ -9,7 +9,7 @@ export default function Account() {
   // const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [userToken, setUserToken] = useState('');
-  const [list, setList] = useState<ITransaction[] | null>(null);
+  const [list, setList] = useState<ITransaction[] | null>([]);
 
 
   useEffect(() => {
@@ -23,7 +23,20 @@ export default function Account() {
     }
   }, []);
 
-  console.log(list)
+  const cashIn = async () => {
+    const data = await cashInTransactions(userToken);
+    setList(data);    
+  }
+
+  const cashOut = async () => {
+    const data = await cashOutTransactions(userToken);
+    setList(data);    
+  }
+
+  const listAll = async () => {
+    const data = await allTransactions(userToken);
+    setList(data);    
+  }
 
   return (
     <>
@@ -31,6 +44,10 @@ export default function Account() {
       <p>BALANCE ACCOUNT</p>
       <p>NEW TRANSACTION</p>
       <p>------- HEADER ---------</p>
+
+      <button type="button" onClick={ cashIn }>cash in</button>
+      <button type="button" onClick={ cashOut }>cash out</button>
+      <button type="button" onClick={ listAll }>all transactions</button>
 
       <table className='transactions-table'>
         <thead>
