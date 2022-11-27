@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { userRegister } from '../services/apiRequests';
+import './Register.css';
 
 export default function Register() {
   const navigate = useNavigate();
@@ -22,19 +23,23 @@ export default function Register() {
     <>
       <form className='register-form'>
         <div className='register-container'>
-        <label htmlFor='username' className='username-input'>
+        <label htmlFor='username' className='username-label'>
           USERNAME
           <input
+            className='username-input'
             type='text'
+            placeholder='username'
             value={ username }
             onChange={ ({target}) => setUsername(target.value) }
             required
           />
         </label>
-        <label htmlFor='password' className='password-input'>
-          SENHA
+        <label htmlFor='password' className='password-label'>
+          PASSWORD
           <input
+            className='password-input'
             type='password'
+            placeholder='password'
             value={ password }
             onChange={ ({target}) => setPassword(target.value) }
             required
@@ -48,7 +53,7 @@ export default function Register() {
           disabled={ isValid() }
           onClick={ handleClick }
           >
-            CRIAR CONTA
+            CREATE ACCOUNT
           </button>
         </div>
       </form>

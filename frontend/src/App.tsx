@@ -11,12 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={ <Login /> } />
         <Route path="/register" element={ <Register /> } />
-
-        {/* <Route element={ <PrivateRoute /> }>
-          <Route path="/account-balance" element={ } />
-        </Route> */}
         <Route path="/account/:id" element={ <Account /> } />
-
         <Route path="*" element={ <NotFound /> } />
       </Routes>
     </BrowserRouter>

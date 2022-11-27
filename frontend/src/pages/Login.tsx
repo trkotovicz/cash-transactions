@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { userLogin } from '../services/apiRequests';
 import { saveUser } from '../services/localStorage';
+import './Login.css';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -30,27 +31,38 @@ export default function Login() {
     <>
       <form className='login-form'>
         <div className='login-container'>
-        <label htmlFor='username' className='username-input'>
-          USERNAME
-          <input
-            type='text'
-            value={ username }
-            onChange={ ({target}) => setUsername(target.value) }
-            required
-          />
-        </label>
-        <label htmlFor='password' className='password-input'>
-          SENHA
-          <input
-            type='password'
-            value={ password }
-            onChange={ ({target}) => setPassword(target.value) }
-            required
-          />
-        </label>
+          <label htmlFor='username' className='username-label'>
+            USERNAME
+            <input
+              className='username-input'
+              type='text'
+              placeholder='username'
+              value={ username }
+              onChange={ ({target}) => setUsername(target.value) }
+              required
+            />
+          </label>
+          <label htmlFor='password'     className='password-label'>
+            PASSWORD
+            <input
+              className='password-input'
+              type='password'
+              placeholder='password'
+              value={ password }
+              onChange={ ({target}) => setPassword(target.value) }
+              required
+            />
+          </label>
+
+          {showHidden ? (
+            <span className='span-login-invalid'>
+              USERNAME OR PASSWORD INVALIDS
+            </span>
+          ) : ''}
+
         </div>
 
-        <div className='button-container'>
+        <div className='login-btn-container'>
           <button
           className='login-btn'
           type='button'
@@ -67,12 +79,8 @@ export default function Login() {
               CRIAR CONTA
             </button>
           </Link>
+          
         </div>
-        {showHidden ? (
-          <span className='span-invalid-login'>
-            USERNAME E/OU SENHA INVÁLIDOS
-          </span>
-        ) : ''}
       </form>
     </>
   )
