@@ -34,9 +34,9 @@ export const userRegister = async (body: object) => {
 // --------------------------------------------------------------
 // ACCOUNT REQUESTS
 
-export const accountById = async (id: number) => {
+export const accountById = async (id: string, token: string) => {
   try {
-    const { data } = await api.get(`/account/${id}`);
+    const { data } = await api.get(`/account/${id}`, { headers: { 'Authorization': token } });
     return data;
   } catch (error) {
     return error;
@@ -73,9 +73,9 @@ export const cashOutTransactions = async (token: string) => {
   }
 };
 
-export const createTransaction = async (token: string) => {
+export const createTransaction = async (body: object, token: string) => {
   try {
-    const { data } = await api.post('/transactions/new', { headers: { 'Authorization': token } });
+    const { data } = await api.post('/transactions/new', body, { headers: { 'Authorization': token } });
     return data;
   } catch (error) {
     return error;

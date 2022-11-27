@@ -1,21 +1,18 @@
 import { useState, useEffect } from 'react';
-// import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import { getUser } from '../services/localStorage';
 import { allTransactions, cashInTransactions, cashOutTransactions } from '../services/apiRequests';
 import ITransaction from '../interfaces/ITransaction';
+import Header from '../components/Header';
 
 export default function Account() {
-  // const navigate = useNavigate();
-  const [username, setUsername] = useState('');
   const [userToken, setUserToken] = useState('');
   const [list, setList] = useState<ITransaction[] | null>([]);
 
 
   useEffect(() => {
     try {
-      const { user, token } = getUser();
-      setUsername(user.username);
+      const { token } = getUser();
       setUserToken(token);
       allTransactions(token).then((dataObj) => { setList(dataObj) });
     } catch (error) {
@@ -40,21 +37,20 @@ export default function Account() {
 
   return (
     <>
-      <p>------- HEADER ---------</p>
-      <p>BALANCE ACCOUNT</p>
-      <p>NEW TRANSACTION</p>
-      <p>------- HEADER ---------</p>
+      <Header />
 
-      <button type="button" onClick={ cashIn }>cash in</button>
-      <button type="button" onClick={ cashOut }>cash out</button>
-      <button type="button" onClick={ listAll }>all transactions</button>
+      <div className='btns-transactions-container'>
+        <button type="button" onClick={ cashIn }>cash in</button>
+        <button type="button" onClick={ cashOut }>cash out</button>
+        <button type="button" onClick={ listAll }>all transactions</button>
+      </div>
 
       <table className='transactions-table'>
         <thead>
           <tr>
             <th>transaction</th>
-            <th>to</th>
             <th>from</th>
+            <th>to</th>
             <th>value</th>
             <th>date</th>
           </tr>
@@ -63,8 +59,8 @@ export default function Account() {
         { list?.map((element) => (
           <tr key={ element.id }>
             <td>{ element.id }</td>
-            <td>{ element.creditedUser.username }</td>
             <td>{ element.debitedUser.username }</td>
+            <td>{ element.creditedUser.username }</td>
             <td>{ element.value.replace('.', ',') }</td>
             <td>{ moment(element.createdAt).format('DD/MM/YYYY') }</td>
           </tr>
