@@ -1,12 +1,12 @@
 button:disabled {
-  background-color: grey;
-  border: 1px solid grey;
-  color: rgb(58, 58, 58);
+  background-color: rgb(173, 173, 173);
+  border: 1px solid rgb(173, 173, 173);
+  color: rgb(73, 73, 73);
 }
 
 .register-form {
   align-items: center;
-  background-color: rgb(225, 225, 225);
+  background-color: #3a3a3a;
   display: flex;
   flex-direction: column;
   font-size: 18px;
@@ -15,7 +15,7 @@ button:disabled {
 
 .register-container {
   align-items: center;
-  background-color: rgb(243, 243, 243);
+  background-color:  rgb(225, 225, 225);
   border-radius: 40px;
   height: 400px;
   width: 60%;
@@ -40,7 +40,7 @@ button:disabled {
 }
 
 .password-input, .username-input {
-  border: 1px solid rgb(13, 207, 87);
+  border: 1px solid rgb(13, 166, 72);
   border-radius: 5px;
   font-size: 16px;
   height: 30px;
@@ -51,8 +51,8 @@ button:disabled {
 }
 
 .register-btn {
-  background-color: rgb(13, 207, 87);
-  border: 1px solid rgb(13, 207, 87);
+  background-color: rgb(13, 166, 72);
+  border: 1px solid rgb(13, 166, 72);
   color: rgb(243, 243, 243);
   font-size: 18px;
   margin-top: 20px;

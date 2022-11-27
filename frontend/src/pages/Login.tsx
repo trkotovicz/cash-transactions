@@ -76,7 +76,7 @@ export default function Login() {
             className='register-btn'
             type='button'
             >
-              CRIAR CONTA
+              CREATE ACCOUNT
             </button>
           </Link>
           
