@@ -4,6 +4,7 @@ import { getUser } from '../services/localStorage';
 import { allTransactions, cashInTransactions, cashOutTransactions } from '../services/apiRequests';
 import ITransaction from '../interfaces/ITransaction';
 import Header from '../components/Header';
+import './Account.css';
 
 export default function Account() {
   const [userToken, setUserToken] = useState('');
@@ -38,36 +39,36 @@ export default function Account() {
   return (
     <>
       <Header />
+      <div className='main-container'>
+        <div className='btns-transactions-container'>
+          <button className='transactions-btn' type="button" onClick={ cashIn }>cash in</button>
+          <button className='transactions-btn' type="button" onClick={ cashOut }>cash out</button>
+          <button className='transactions-btn' type="button" onClick={ listAll }>all transactions</button>
+        </div>
 
-      <div className='btns-transactions-container'>
-        <button type="button" onClick={ cashIn }>cash in</button>
-        <button type="button" onClick={ cashOut }>cash out</button>
-        <button type="button" onClick={ listAll }>all transactions</button>
+        <table className='transactions-table'>
+          <thead>
+            <tr>
+              <th>transaction</th>
+              <th>from</th>
+              <th>to</th>
+              <th>value</th>
+              <th>date</th>
+            </tr>
+          </thead>
+          <tbody>
+          { list?.map((element) => (
+            <tr key={ element.id }>
+              <td>{ element.id }</td>
+              <td>{ element.debitedUser.username }</td>
+              <td>{ element.creditedUser.username }</td>
+              <td>{ element.value.replace('.', ',') }</td>
+              <td>{ moment(element.createdAt).format('DD/MM/YYYY') }</td>
+            </tr>
+          )) }
+          </tbody>
+        </table>
       </div>
-
-      <table className='transactions-table'>
-        <thead>
-          <tr>
-            <th>transaction</th>
-            <th>from</th>
-            <th>to</th>
-            <th>value</th>
-            <th>date</th>
-          </tr>
-        </thead>
-        <tbody>
-        { list?.map((element) => (
-          <tr key={ element.id }>
-            <td>{ element.id }</td>
-            <td>{ element.debitedUser.username }</td>
-            <td>{ element.creditedUser.username }</td>
-            <td>{ element.value.replace('.', ',') }</td>
-            <td>{ moment(element.createdAt).format('DD/MM/YYYY') }</td>
-          </tr>
-        )) }
-        </tbody>
-      </table>
-
     </>
   )
 }
