@@ -5,6 +5,9 @@ Projeto desenvolvido para o desafio técnico da NG Cash.</br>
 Trata-se de um site de banco. Onde o cliente pode logar, criar uma nova conta, consultar o saldo, olhar o extrato, filtrar por pagamentos feitos e recebidos e realizar uma nova transação de transaferência entre contas.</br>
 Ele foi desenvolvido em Typescript, utilizando React.Js para o frontend e, Node.Js, o banco de dados PostgreSQL, com Express e o ORM Sequelize, no backend. Possui autenticação com JTW e encriptação de senha com MD5.</br>
 
+
+![aplicação](/public/images/mobile.gif)
+
 ## Inicialização via Docker 🐳
 
 1. Clone o repositório `git@github.com:trkotovicz/cash-transactions.git`
