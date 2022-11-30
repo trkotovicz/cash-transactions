@@ -22,9 +22,7 @@ Ele foi desenvolvido em Typescript, utilizando React.Js para o frontend e, Node.
 
 # API
 
-</br>
-Acesse a documentação da API em `http://localhost:3001/docs/#/`.
-</br>
+Acesse a documentação da API em `http://localhost:3001/docs/#/`. </br>
 
 ---
 
