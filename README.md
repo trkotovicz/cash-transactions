@@ -3,7 +3,7 @@
 
 Cash transactions é uma "wallet" de transações bancárias.</br>
 O foco do projeto é o **backend**.</br>
-Ele foi desenvolvido em Node.Js com Typescript, banco de dados relacional PostgreSQL, com Express.js e o ORM Sequelize. Possui autenticação com JTW e encriptação de senha com MD5.</br>
+Ele foi desenvolvido em Node.Js com Typescript, banco de dados relacional PostgreSQL, com Express.js e o ORM Sequelize. Possui autenticação com JWT e encriptação de senha com MD5.</br>
 Para usar a aplicação, basta o usuário logar com uma conta já existente `(usuário: hommersimpson - senha: p0rcoAr@anha)`, ou criar uma nova conta.
 Depois de logado, é possível consultar o saldo, olhar o extrato, filtrar por pagamentos feitos ou recebidos e realizar uma nova transação de transaferência entre contas.</br>
 
