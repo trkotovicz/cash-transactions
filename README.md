@@ -7,7 +7,7 @@ Ele foi desenvolvido em Node.Js com Typescript, banco de dados relacional Postgr
 Para usar a aplicação, basta o usuário logar com uma conta já existente `(usuário: hommersimpson - senha: p0rcoAr@anha)`, ou criar uma nova conta.
 Depois de logado, é possível consultar o saldo, olhar o extrato, filtrar por pagamentos feitos ou recebidos e realizar uma nova transação de transaferência entre contas.</br>
 
-<img src="/public/images/mobile.gif" width="350px"/>
+<img src="/public/images/mobile.gif" width="300px"/>
 
 ## Inicialização via Docker 🐳
 
@@ -26,7 +26,7 @@ Depois de logado, é possível consultar o saldo, olhar o extrato, filtrar por p
 
 # API
 
-Acesse a documentação da API em `http://localhost:3001/docs/#/`. </br>
+Com a aplicação rodando acesse a documentação da API em http://localhost:3001/docs/#/ </br>
 
 ---
 
