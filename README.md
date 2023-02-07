@@ -1,12 +1,13 @@
 # Cash Transactions
 
 
-Projeto desenvolvido para o desafio técnico da NG Cash.</br>
-Trata-se de um site de banco. Onde o cliente pode logar, criar uma nova conta, consultar o saldo, olhar o extrato, filtrar por pagamentos feitos e recebidos e realizar uma nova transação de transaferência entre contas.</br>
-Ele foi desenvolvido em Typescript, utilizando React.Js para o frontend e, Node.Js, o banco de dados PostgreSQL, com Express e o ORM Sequelize, no backend. Possui autenticação com JTW e encriptação de senha com MD5.</br>
+Cash transactions é uma "wallet" de transações bancárias.</br>
+O foco do projeto é o **backend**.</br>
+Ele foi desenvolvido em Node.Js com Typescript, banco de dados relacional PostgreSQL, com Express.js e o ORM Sequelize. Possui autenticação com JTW e encriptação de senha com MD5.</br>
+Para usar a aplicação, basta o usuário logar com uma conta já existente `(usuário: hommersimpson - senha: p0rcoAr@anha)`, ou criar uma nova conta.
+Depois de logado, é possível consultar o saldo, olhar o extrato, filtrar por pagamentos feitos ou recebidos e realizar uma nova transação de transaferência entre contas.</br>
 
-
-![aplicação](/public/images/mobile.gif)
+<img src="/public/images/mobile.gif" width="350px"/>
 
 ## Inicialização via Docker 🐳
 
